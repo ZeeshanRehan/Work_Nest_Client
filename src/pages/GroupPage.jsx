@@ -11,6 +11,7 @@ const userToken = localStorage.getItem("token");
 const [selectedDate, setSelectedDate] = useState(() => {
   return new Date().toISOString().split("T")[0]; // default to today
 });
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 function parseJwt(token) {
@@ -30,7 +31,7 @@ useEffect(() => {
   const fetchEntries = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/group/${group._id}/entries?date=${selectedDate}`,
+        `${BASE_URL}/api/group/${group._id}/entries?date=${selectedDate}`,
         {
           headers: { Authorization: `Bearer ${userToken}` }
         }
@@ -64,7 +65,7 @@ useEffect(() => {
 
     const fetchGroup = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/group/${id}`, {
+        const res = await fetch(`${BASE_URL}/api/group/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -119,7 +120,7 @@ useEffect(() => {
 
             try {
               const res = await fetch(
-                `http://localhost:5000/api/group/${group._id}/metrics`,
+                `${BASE_URL}/api/group/${group._id}/metrics`,
                 {
                   method: "POST",
                   headers: {
@@ -133,7 +134,7 @@ useEffect(() => {
               const data = await res.json();
 
               if (res.ok) {
-                const refetch = await fetch(`http://localhost:5000/api/group/${group._id}`, {
+                const refetch = await fetch(`${BASE_URL}/api/group/${group._id}`, {
                     headers: {
                       Authorization: `Bearer ${token}`,
                     },
@@ -272,7 +273,7 @@ useEffect(() => {
                     });
                   
                     try {
-                      const res = await fetch(`http://localhost:5000/api/group/${group._id}/entry?date=${selectedDate}`, {
+                      const res = await fetch(`${BASE_URL}/api/group/${group._id}/entry?date=${selectedDate}`, {
                         method: "POST",
                         headers: {
                           "Content-Type": "application/json",

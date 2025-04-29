@@ -14,6 +14,7 @@ export default function Dashboard() {
   const [groups, setGroups] = useState([]);
   const [groupName, setGroupName] = useState("");
   const [creating, setCreating] = useState(false);
+  const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -24,7 +25,7 @@ export default function Dashboard() {
 
     const fetchGroups = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/group/my-groups", {
+        const res = await fetch(`${BASE_URL}/api/group/my-groups`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -45,7 +46,7 @@ export default function Dashboard() {
     if (!token) return;
 
     try {
-      const res = await fetch("http://localhost:5000/api/group/create", {
+      const res = await fetch(`${BASE_URL}/api/group/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -136,7 +137,7 @@ export default function Dashboard() {
             if (!token || !code) return;
 
             try {
-              const res = await fetch(`http://localhost:5000/api/group/join/${code}`, {
+              const res = await fetch(`${BASE_URL}/api/group/join/${code}`, {
                 method: "POST",
                 headers: { Authorization: `Bearer ${token}` },
               });

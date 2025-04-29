@@ -7,6 +7,7 @@ export default function GroupChat() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [group, setGroup] = useState(null);
+  const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   function parseJwt(token) {
     try {
@@ -19,7 +20,7 @@ export default function GroupChat() {
   useEffect(() => {
     const fetchGroup = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/group/${id}`, {
+        const res = await fetch(`${BASE_URL}/api/group/${id}`, {
           headers: { Authorization: `Bearer ${userToken}` },
         });
         const data = await res.json();
@@ -35,7 +36,7 @@ export default function GroupChat() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/chat/${id}`, {
+        const res = await fetch(`${BASE_URL}/api/chat/${id}`, {
           headers: { Authorization: `Bearer ${userToken}` },
         });
         const data = await res.json();
@@ -52,7 +53,7 @@ export default function GroupChat() {
     const interval = setInterval(() => {
       const fetchMessages = async () => {
         try {
-          const res = await fetch(`http://localhost:5000/api/chat/${id}`, {
+          const res = await fetch(`${BASE_URL}/api/chat/${id}`, {
             headers: { Authorization: `Bearer ${userToken}` },
           });
           const data = await res.json();
@@ -74,7 +75,7 @@ export default function GroupChat() {
     if (!newMessage.trim()) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/chat/${id}`, {
+      const res = await fetch(`${BASE_URL}/api/chat/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
