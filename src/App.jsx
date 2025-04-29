@@ -13,7 +13,7 @@ function App() {
         Welcome to <span className="text-blue-600">WorkNest</span> 🪺
       </h1>
       <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-md">
-        Organize your productivity, chat in groups, and stay accountable with friends.
+        Organize productivity, chat in groups, and stay accountable with friends.
       </p>
       <div className="flex gap-6">
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
