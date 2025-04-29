@@ -64,6 +64,12 @@ export default function Signup() {
         >
           Create Account
         </button>
+        <p className="text-sm text-center mt-4">
+          Already have an account?{" "}
+          <a href="/login" className="text-purple-400 hover:underline">
+            Log In
+          </a>
+        </p>
       </form>
     </div>
   );
