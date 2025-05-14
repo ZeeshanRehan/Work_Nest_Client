@@ -54,7 +54,7 @@ Check out the live app here:
 If you'd like to share feedback, suggestions, or want to collaborate:
 
 - 📬 Email: [zeeshanrehan12345@gmail.com](mailto:zeeshanrehan12345@gmail.com)  
-- 🔗 LinkedIn: [linkedin.com/in/yourprofile](https://www.linkedin.com/in/zeshan-rehan-504ab0128/)
+- 🔗 LinkedIn: [linkedin.com/in/ZeshanRehan](https://www.linkedin.com/in/zeshan-rehan-504ab0128/)
 
 ---
 
